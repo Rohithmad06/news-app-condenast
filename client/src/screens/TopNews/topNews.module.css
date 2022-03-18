@@ -1,0 +1,10 @@
+.filtersContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1rem;
+  width: auto;
+}
+.button {
+    margin: 0 1rem;
+}
