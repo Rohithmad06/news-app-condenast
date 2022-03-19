@@ -1,4 +1,4 @@
-### UI to see list of news from newsapi.org service. You can filter among the keywords provided.
+# UI to see list of news from newsapi.org service. You can filter among the keywords provided.
 
 # Getting Started with Create React App
 
