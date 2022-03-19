@@ -1,6 +1,4 @@
-# Project Title
-
-APIs to fetch top news from newsapi.org service.
+# APIs to fetch top news from newsapi.org service.
 
 ---
 ## Requirements

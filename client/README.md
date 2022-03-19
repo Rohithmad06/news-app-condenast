@@ -1,6 +1,4 @@
-# News app to read latest news.
-
-# Project Title
+# News app to read latest news
 
 UI to view latest news from newsapi.org
 
