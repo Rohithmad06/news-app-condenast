@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import List from '../../components/List/List';
 import { error } from '../../components/Error/error';
 import classes from './topNews.module.css';
@@ -18,6 +18,8 @@ const TopNews = () => {
     const [showModal, setShowModal] = useState(null);
     const [selectedTags, setSelectedTags] = useState(["All"]);
     const filters = ["All", "Sports", "Entertainment", "Cinema", "Technology", "Politics"]
+
+    const scrollRef = useRef();
 
     const fetchArticles = () => {
 
@@ -75,18 +77,23 @@ const TopNews = () => {
         //Show modal on article click
         setShowModal(id.toString())
     }
-    return <>
+    return <React.Fragment>
         <div className={classes.filtersContainer}>
             {filters.map(tag => <CheckableTag key={tag}
                 checked={selectedTags?.indexOf(tag) > -1}
                 onChange={() => setSelectedTags(tag)}>{tag}</CheckableTag>)}
         </div>
-        <List articles={articles} loadMoreData={loadMoreData} hasMore={hasMore}
-            loading={loading && !loadingMore} onClick={onArticleClick} />
+        <List articles={articles}
+            loadMoreData={loadMoreData}
+            hasMore={hasMore}
+            loading={loading && !loadingMore}
+            onClick={onArticleClick} />
 
-        {!!showModal && <NewsDetail article={articles[Number(showModal)]} visible={!!showModal}
+        {!!showModal && <NewsDetail
+            article={articles[Number(showModal)]}
+            visible={!!showModal}
             onCancel={() => setShowModal(null)} />}
-    </>
+    </React.Fragment>
 
 }
 

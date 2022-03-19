@@ -7,7 +7,6 @@ import ListItem from '../ListItem/ListItem';
 
 const InfiniteListExample = (props) => {
     const { articles, loadMoreData, hasMore, loading, onClick } = props;
-
     return (
         <div
             id="scrollableDiv"
@@ -26,17 +25,16 @@ const InfiniteListExample = (props) => {
                 next={loadMoreData}
                 hasMore={articles.length < 100 && hasMore}
                 loader={<Skeleton paragraph={{ rows: 2 }} active style={{ padding: "1.5rem" }} />}
-                endMessage={<Divider plain>It is all, nothing more 🤐</Divider>}
+                endMessage={<Divider plain>The End 🤐</Divider>}
                 scrollableTarget="scrollableDiv"
             >
                 <List
                     dataSource={articles}
-                    renderItem={(article, index) => (
-                        <ListItem article={article}
-                            key={index}
-                            id={index}
-                            onClick={onClick} />
-                    )}
+                    renderItem={(article, index) => <ListItem article={article}
+                        key={index}
+                        id={index}
+                        onClick={onClick} />
+                    }
                     loading={loading}
                 />
             </InfiniteScroll>
